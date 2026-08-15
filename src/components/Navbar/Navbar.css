@@ -28,3 +28,48 @@
     align-items:center;
     gap:max(1vw,12px);
 }
+
+.navbar select{
+    padding:5px 8px;
+    border-radius:6px;
+    border:1px solid #6d5dfc;
+    background:transparent;
+    color:white;
+   outline:none;
+}
+
+
+.navbar option {
+    background: #11152a;
+    color: #ffffff;
+}
+
+
+.navbar button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 25px;
+    border-radius:20px;
+    font-size:15px;
+    font-weight:500;
+    color:#6d5dfc;
+    background:white;
+    border:none;
+    cursor:pointer;
+
+    transition: all 0.25s ease;
+
+}
+
+.navbar button:hover {
+    background: #6d5dfc;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(109, 93, 252, 0.3);
+}
+
+.navbar button img{
+    width:13px;
+}
+
