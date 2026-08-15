@@ -1,6 +1,18 @@
 import './Home.css'
+import { useContext } from 'react'
+import { CoinContext } from '../../context/CoinContext.jsx'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Home = () => {
+
+    const {allCoin,currency}=useContext(CoinContext);
+    const [displayCoin,setDisplayCoin]=useState([]);
+
+    useEffect(()=>{
+
+        setDisplayCoin(allCoin);
+    },[allCoin]);
   return (
     <div className='home'>
         <div className="hero">
@@ -25,6 +37,18 @@ const Home = () => {
                 <p className='market-cap'>Market Cap</p>
 
             </div>
+            {
+                displayCoin.slice(0,10).map((item,index)=>(
+                    <div className="table-layout" key={index}>
+                        <p>{item.market_cap_rank}</p>
+                        <div>
+                            <img  src={item.image}/>
+                            <p>{item.name +'-'+item.symbol}</p>
+                        </div>
+                        <p>{currency.symbol}{item.current_price}</p>
+                    </div>
+                ))
+            }
         </div>
 
        

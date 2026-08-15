@@ -15,7 +15,7 @@ const CoinContextProvider = (props) => {
             method: "GET",
             headers: {
                 accept: "application/json",
-                "x-cg-demo-api-key": "YOUR_API_KEY"
+                "x-cg-demo-api-key": "CG-EnjTB7f18q7pUfK7F98rzf2h"
             }
         };
 
