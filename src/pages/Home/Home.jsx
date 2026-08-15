@@ -6,8 +6,30 @@ import { useEffect } from 'react'
 
 const Home = () => {
 
+
+    
     const {allCoin,currency}=useContext(CoinContext);
     const [displayCoin,setDisplayCoin]=useState([]);
+    const [input,setInput]=useState('');
+
+    const inputHandler=(e)=>{
+
+        setInput(e.target.value);
+
+    }
+
+    const searchHandler=async(e)=>{
+        e.preventDefault();
+
+       const coins= await allCoin.filter((item)=>{
+
+          return  item.name.toLowerCase().includes(input.toLowerCase())
+
+        })
+
+        setDisplayCoin(coins);
+
+    }
 
     useEffect(()=>{
 
@@ -20,10 +42,11 @@ const Home = () => {
             <p>Welcome to the world's largest cryptocurrency marketplace. Sign up to explore more about cryptos.</p>
 
 
-            <form >
+            <form  onSubmit={searchHandler}>
 
 
-                <input  type='text' placeholder='Search crypto ..'/>
+                <input onChange={inputHandler} value={input}
+                type='text' placeholder='Search crypto ..' required/>
                 <button type='submit'>Search</button>
             </form>
         </div>
